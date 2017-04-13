@@ -33,6 +33,24 @@ function print_r ( t )
     print()
 end
 
+-- Print table for Debug
+function debug_print( ... )
+    local arg = {...}
+    if arg == nil then
+        return
+    end
+    
+    for i, v in ipairs(arg) do
+        if type(v) == "table" then
+            print_r(v)
+        elseif type(v) == "userdata" then
+            print(tolua.type(v))
+        else
+            print(v)
+        end
+    end
+end
+
 local Utility = {}
 
 math.randomseed(tostring(os.time()):reverse():sub(1, 6)) -- random seed
