@@ -80,4 +80,17 @@ function Utility:getRandomPointInCircle( origin, radius )
   return point
 end
 
+--------------------------------------------------------------
+-- 算出table 數量
+-- @param #不限型別 tbInput
+-- @return #int size
+--------------------------------------------------------------
+function Utility:getTableSize(tbInput)
+    local tbSize = 0
+    for i, v in pairs(tbInput) do
+        tbSize = tbSize + 1
+    end
+    return tbSize
+end
+
 return Utility
