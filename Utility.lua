@@ -93,4 +93,24 @@ function Utility:getTableSize(tbInput)
     return tbSize
 end
 
+------------------------
+-- table 隨機從table中pop中。table的key必須是1~N的連續數字。
+-- @param #table inputTable 傳入的table。pop後此table會被改變。
+-- @return #value outItem pop出來的item
+------------------------
+function Utility:randomPopTable( inputTable )
+  local outItem = nil
+
+  local tableSize = Utility:getTableSize( inputTable )
+  
+  if tableSize <= 0 then
+    return outItem
+  end
+
+  local popIndex = math.random( 1, tableSize )
+  outItem = table.remove( inputTable, popIndex )
+
+  return outItem
+end
+
 return Utility
